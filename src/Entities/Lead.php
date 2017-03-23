@@ -18,11 +18,7 @@ class Lead extends Entity {
     public function create($args = [])
     {
 
-        $args = [
-            'xmlData' => $args
-        ];
-
-        $query = Utils::normaliseArray([
+        $defaults = [
             'xmlData' => [
                 'Lead Source' => 'Testing API',
                 'Company' => 'Testing',
@@ -31,11 +27,13 @@ class Lead extends Entity {
                 'Email' => 'testing@api.testing',
                 'Primary Phone' => '00000000000',
             ]
-        ], $args);
+        ];
+
+        $query = array_replace_recursive($defaults, $args);
 
         $query['xmlData'] = Utils::toXmlEntity('Lead', $query['xmlData']);
 
-        $response = $this->client->post('insertRecords', [
+        $response = $this->client->post('Lead/insertRecords', [
             'query' => $query
         ]);
 
@@ -50,12 +48,13 @@ class Lead extends Entity {
     public function get($args = [])
     {
 
-        $response = $this->client->get('getRecords', [
-            'query' => Utils::normaliseArray([
-                'authtoken' => $this->token,
-                'fromIndex' => 0,
-                'toIndex' => 10
-            ], $args)
+        $defaults = [
+            'fromIndex' => 0,
+            'toIndex' => 10
+        ];
+
+        $response = $this->client->get('Lead/getRecords', [
+            'query' => array_replace_recursive($defaults, $args)
         ]);
 
         if ($response->getStatusCode() !== 200) {
