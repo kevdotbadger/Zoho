@@ -26,7 +26,7 @@ class Client extends Guzzle {
 
     public function __get($property)
     {
-        $classname = ucfirst($property);
+        $classname = 'KevinRuscoe\Entity\\'.ucfirst($property);
 
         if (class_exists($classname)) {
             return new $classname($this);
