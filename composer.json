@@ -11,7 +11,7 @@
     },
     "autoload": {
         "psr-4": {
-            "kevdotbadger//Zoho\\": "kevdotbadger/Zoho/src/"
+            "kevdotbadger//Zoho\\": "src/"
         }
     }
 }
