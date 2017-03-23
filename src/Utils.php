@@ -1,6 +1,6 @@
 <?php
 
-namespace kevdotbadger\Zoho;
+namespace Levdotbadger\Zoho;
 
 class Utils {
 

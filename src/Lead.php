@@ -1,6 +1,6 @@
 <?php
 
-namespace kevdotbadger\Zoho;
+namespace Kevdotbadger\Zoho;
 
 use GuzzleHttp\Client;
 

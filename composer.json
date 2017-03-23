@@ -1,5 +1,5 @@
 {
-    "name": "kevdotbadger/zoho",
+    "name": "Kevdotbadger/Zoho",
     "authors": [
         {
             "name": "Kevin Ruscoe",
@@ -11,7 +11,7 @@
     },
     "autoload": {
         "psr-4": {
-            "kevdotbadger//Zoho\\": "src/"
+            "Kevdotbadger//Zoho\\": "src/"
         }
     }
 }
