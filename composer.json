@@ -1,9 +1,9 @@
 {
-    "name": "Kevdotbadger/Zoho",
+    "name": "KevinRuscoe/Zoho",
     "authors": [
         {
             "name": "Kevin Ruscoe",
-            "email": "kevin@popcreative.co.uk"
+            "email": "kevdotbadger@gmail.com"
         }
     ],
     "require": {
@@ -11,7 +11,7 @@
     },
     "autoload": {
         "psr-4": {
-            "Kevdotbadger\\Zoho\\": "src/"
+            "KevinRuscoe\\Zoho\\": "src/"
         }
     }
 }

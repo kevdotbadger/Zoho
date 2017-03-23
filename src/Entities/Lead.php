@@ -1,29 +1,10 @@
 <?php
 
-namespace Kevdotbadger\Zoho;
+namespace KevinRuscoe\Zoho\Entities;
 
-use GuzzleHttp\Client;
+use KevinRuscoe\Zoho\Utils;
 
-class Lead {
-
-    private $token;
-    private $endpoint;
-    private $client;
-
-    /**
-     * Create a new client.
-     *
-     * @param string $token Authentication Token
-     **/
-    public function __construct($token)
-    {
-        $this->endpoint = 'https://crm.zoho.com/crm/private/json/Leads/';
-        $this->token = $token;
-
-        $this->client = new Client([
-            'base_uri' => $this->endpoint,
-        ]);
-    }
+class Lead extends Entity {
 
     /**
      * Creates a new Lead
@@ -42,7 +23,6 @@ class Lead {
         ];
 
         $query = Utils::normaliseArray([
-            'authtoken' => $this->token,
             'xmlData' => [
                 'Lead Source' => 'Testing API',
                 'Company' => 'Testing',
@@ -66,7 +46,7 @@ class Lead {
         return json_decode($response->getBody())->response->result->recorddetail;
 
     }
-
+    
     public function get($args = [])
     {
 
