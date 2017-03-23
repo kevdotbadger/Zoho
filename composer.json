@@ -1,0 +1,17 @@
+{
+    "name": "kevinruscoe/zoho",
+    "authors": [
+        {
+            "name": "Kevin Ruscoe",
+            "email": "kevin@popcreative.co.uk"
+        }
+    ],
+    "require": {
+        "guzzlehttp/guzzle": "^6.2"
+    },
+    "autoload": {
+        "psr-4": {
+            "Zoho\\": "Zoho/src/"
+        }
+    }
+}
