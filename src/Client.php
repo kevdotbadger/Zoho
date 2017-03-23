@@ -32,7 +32,7 @@ class Client extends Guzzle {
             return new $classname($this);
         }
 
-        throw new Exception('Entity not supported');
+        throw new \Exception('Entity not supported');
     }
 
 }
