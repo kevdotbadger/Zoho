@@ -41,7 +41,7 @@ class Lead {
             'xmlData' => $args
         ];
 
-        $query = Kevdotbadger\Zoho\Utils::normaliseArray([
+        $query = Utils::normaliseArray([
             'authtoken' => $this->token,
             'xmlData' => [
                 'Lead Source' => 'Testing API',
@@ -53,7 +53,7 @@ class Lead {
             ]
         ], $args);
 
-        $query['xmlData'] = Kevdotbadger\Zoho\Utils::toXmlEntity('Lead', $query['xmlData']);
+        $query['xmlData'] = Utils::toXmlEntity('Lead', $query['xmlData']);
 
         $response = $this->client->post('insertRecords', [
             'query' => $query
@@ -71,7 +71,7 @@ class Lead {
     {
 
         $response = $this->client->get('getRecords', [
-            'query' => Kevdotbadger\Zoho\Utils::normaliseArray([
+            'query' => Utils::normaliseArray([
                 'authtoken' => $this->token,
                 'fromIndex' => 0,
                 'toIndex' => 10
