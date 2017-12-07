@@ -7,7 +7,9 @@ use GuzzleHttp\Client;
 class Lead {
 
     private $token;
+    
     private $endpoint;
+    
     private $client;
 
     /**
@@ -15,9 +17,9 @@ class Lead {
      *
      * @param string $token Authentication Token
      **/
-    public function __construct($token)
+    public function __construct($token, $region = 'com')
     {
-        $this->endpoint = 'https://crm.zoho.com/crm/private/json/Leads/';
+        $this->endpoint = sprintf('https://crm.zoho.%s/crm/private/json/Leads/', $region);
         $this->token = $token;
 
         $this->client = new Client([
@@ -36,7 +38,6 @@ class Lead {
      **/
     public function create($args = [])
     {
-
         $args = [
             'xmlData' => $args
         ];
@@ -64,12 +65,10 @@ class Lead {
         }
 
         return json_decode($response->getBody())->response->result->recorddetail;
-
     }
 
     public function get($args = [])
     {
-
         $response = $this->client->get('getRecords', [
             'query' => Utils::normaliseArray([
                 'authtoken' => $this->token,
@@ -83,7 +82,5 @@ class Lead {
         }
 
         return json_decode($response->getBody())->response->result->Leads->row;
-
     }
-
 }
