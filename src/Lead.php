@@ -4,12 +4,27 @@ namespace Kevdotbadger\Zoho;
 
 use GuzzleHttp\Client;
 
-class Lead {
-
+class Lead
+{
+    /**
+     * The token.
+     *
+     * @var string
+     */
     private $token;
     
+    /**
+     * The endpoint.
+     *
+     * @var string
+     */
     private $endpoint;
     
+    /**
+     * The guzzle client.
+     *
+     * @var Client
+     */
     private $client;
 
     /**
@@ -34,7 +49,7 @@ class Lead {
      *
      * @param array $args The fields to create a new lead from.
      *
-     * @return mixed False if failed, the response from Zoho if success
+     * @return bool|string False if failed, the response from Zoho if success
      **/
     public function create($args = [])
     {

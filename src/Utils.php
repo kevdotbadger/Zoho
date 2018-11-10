@@ -2,8 +2,16 @@
 
 namespace Kevdotbadger\Zoho;
 
-class Utils {
-
+class Utils
+{
+    /**
+     * Ensures the required fields are added to the array.
+     *
+     * @param array $default
+     * @param array $payload
+     *
+     * @return array
+     */
     public static function normaliseArray($default = [], $payload = [])
     {
         $normalised = [];
@@ -15,6 +23,14 @@ class Utils {
         return $normalised;
     }
 
+    /**
+     * Builds an xml entity.
+     *
+     * @param string $entity
+     * @param array $payload
+     *
+     * @return string
+     */
     public static function toXmlEntity($entity, $payload = [])
     {
         $xml = "<$entity><row no='1'>";
